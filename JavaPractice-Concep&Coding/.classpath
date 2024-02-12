@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="Enum"/>
+	<classpathentry kind="src" path="NestedClasses"/>
+	<classpathentry kind="src" path="SingletonClass"/>
+	<classpathentry kind="src" path="ImmutableClass"/>
+	<classpathentry kind="src" path="NestedInterface"/>
+	<classpathentry kind="src" path="DefaultMethodInInterface(Java8)"/>
+	<classpathentry kind="src" path="StaticMethodInInterface(Java8)"/>
+	<classpathentry kind="src" path="FunctionalInterface"/>
+	<classpathentry kind="src" path="JavaReflection"/>
+	<classpathentry kind="src" path="CustomAnnotations"/>
+	<classpathentry kind="src" path="ExceptionHandling"/>
+	<classpathentry kind="src" path="SwitchStatement"/>
+	<classpathentry kind="src" path="Comparable&amp;Comparator"/>
+	<classpathentry kind="src" path="CollectionInterface"/>
+	<classpathentry kind="src" path="Stream"/>
+	<classpathentry kind="src" path="DesignHashMapWithoutBuiltInFunction"/>
+	<classpathentry kind="src" path="MultiThreading"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
