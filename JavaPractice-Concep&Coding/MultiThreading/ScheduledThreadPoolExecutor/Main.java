@@ -31,29 +31,29 @@ public class Main {
 //		System.out.println(result.get());
 
 		//
-//		ScheduledFuture<?> obj = executor.scheduleAtFixedRate(()->{
-//			
-//			try {
-//				System.out.println("Task started");
-//				Thread.sleep(7000);
-//			}catch(Exception e) {
-//				e.printStackTrace();
-//			}
-//			System.out.println("hello");
-//			System.out.println("Task completed");
-//		}, 2,5, TimeUnit.SECONDS);
-
-		ScheduledFuture<?> obj = executor.scheduleWithFixedDelay(() -> {
-
+		ScheduledFuture<?> obj = executor.scheduleAtFixedRate(()->{
+			
 			try {
 				System.out.println("Task started");
-				Thread.sleep(7000);
-			} catch (Exception e) {
+//				Thread.sleep(000);
+			}catch(Exception e) {
 				e.printStackTrace();
 			}
 			System.out.println("hello");
 			System.out.println("Task completed");
-		}, 2, 5, TimeUnit.SECONDS);
+		}, 2,5, TimeUnit.SECONDS);
+
+//		ScheduledFuture<?> obj = executor.scheduleWithFixedDelay(() -> {
+//
+//			try {
+//				System.out.println("Task started");
+//				Thread.sleep(7000);
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
+//			System.out.println("hello");
+//			System.out.println("Task completed");
+//		}, 2, 5, TimeUnit.SECONDS);
 
 	}
 }

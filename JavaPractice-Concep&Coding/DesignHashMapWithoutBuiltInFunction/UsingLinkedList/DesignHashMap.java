@@ -1,13 +1,8 @@
 package UsingLinkedList;
-
-
-@SuppressWarnings("hiding")
-class MyHashMap<String,Integer>{
-	
+class MyHashMapDesign{
 	Entry<String,Integer>[] table;
 	
-	@SuppressWarnings("unchecked")
-	public MyHashMap() {
+	MyHashMapDesign(){
 		table=new Entry[16];
 	}
 	
@@ -20,19 +15,16 @@ class MyHashMap<String,Integer>{
 			this.key=key;
 			this.value=value;
 		}
-		
 	}
-
-	public void put(String key, int value) {
-		if(key==null)
+	
+	public void put(String key,Integer value) {
+		if(key==null) {
 			return;
-		
+		}
 		int index=getIndex(key);
-		Entry<String,Integer> entry=new Entry(key,value);
-		
+		Entry<String,Integer> entry=new Entry(key, value);
 		if(table[index]==null) {
 			table[index]=entry;
-			
 		}else {
 			Entry<String,Integer> prev=null;
 			Entry<String,Integer> current=table[index];
@@ -45,22 +37,19 @@ class MyHashMap<String,Integer>{
 				current=prev.next;
 			}
 			prev.next=entry;
+			
 		}
 	}
-
-	private int getIndex(String key) {
-		return Math.abs(key.hashCode())% table.length;
-		
-	}
-
+	
 	public Integer get(String key) {
-		if(key==null)
+		if(key==null) {
 			return null;
-		
+		}
 		int index=getIndex(key);
 		if(table[index]==null) {
-			return null; 
-		}else {
+			return null;
+		}
+		else {
 			Entry<String,Integer> current=table[index];
 			while(current!=null) {
 				if(current.key.equals(key)) {
@@ -68,43 +57,65 @@ class MyHashMap<String,Integer>{
 				}
 				current=current.next;
 			}
+			
 		}
 		return null;
-	}
-
-	public void remove(String key) {
-		if(key==null)
-			return ;
 		
+		
+	}
+	
+	public void remove(String key) {
+		if(key==null) {
+			return;
+		}
 		int index=getIndex(key);
 		if(table[index]==null) {
 			return;
 		}else {
 			Entry<String,Integer> current=table[index];
-			if(current.key.equals(key)) {
-				current=null;
+			Entry<String,Integer> prev=null;
+			while(current!=null) {
+				if(current.key.equals(key)) {
+					if(prev==null) {
+						table[index]=current.next;
+					}else {
+						prev.next=null;
+					}
+					return;
+					
+				}
+				prev=current;
+				current=prev.next;
 			}
 			
 		}
-		
 	}
-	
+
+	private int getIndex(String key) {
+		return Math.abs(key.hashCode())%table.length;
+	}
 }
 
-public class Main {
 
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public static void main(String[] args) {
-		MyHashMap hashMap=new MyHashMap();
-		 hashMap.put("1", 1);
+
+public class DesignHashMap {
+
+	public static void main(String args[]) {
+		MyHashMapDesign hashMap=new MyHashMapDesign();
+		    hashMap.put("1", 1);
 	        hashMap.put("2", 2);
 	        System.out.println(hashMap.get("1"));
 	        System.out.println(hashMap.get("3"));
 	        hashMap.put("3", 1);
-	        System.out.println(hashMap.get("2"));
+	        System.out.println(hashMap.get("3"));
 	        hashMap.remove("2");
 	        System.out.println(hashMap.get("2"));
-		//System.out.println(map.get("1"));
+	        hashMap.remove("1");
+	        System.out.println(hashMap.get("2"));
+	        hashMap.put("3", 2);
+	        System.out.println(hashMap.get("3"));
+	        hashMap.put("3", 21);
+	        System.out.println(hashMap.get("3"));
 	}
 
 }

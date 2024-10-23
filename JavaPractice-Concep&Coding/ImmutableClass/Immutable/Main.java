@@ -1,6 +1,7 @@
 package Immutable;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Main {
@@ -9,9 +10,12 @@ public class Main {
 		List<String> list=new ArrayList();
 		list.add("divs");
 		list.add("priya");
-		MyImmutableClass immutable=new MyImmutableClass("JAVA", list);
+		Address address=new Address("Bangalore");
+		MyImmutableClass immutable=new MyImmutableClass("JAVA", list,address, new Date());
 		immutable.getNamesList().add("mouli");
-		System.out.println(immutable.getNamesList());
+		immutable.getAddress().setCity("pune");
+		immutable.getDate().setDate(15);
+		System.out.println(immutable);
 
 	}
 

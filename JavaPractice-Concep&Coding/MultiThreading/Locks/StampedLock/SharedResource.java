@@ -3,7 +3,7 @@ package Locks.StampedLock;
 import java.util.concurrent.locks.StampedLock;
 
 public class SharedResource {
-	int a = 10;
+	int a;
 	StampedLock lock = new StampedLock();
 
 	public void produce() {
@@ -15,7 +15,6 @@ public class SharedResource {
 			if(lock.validate(stamp)) {
 				
 				System.out.println("Successfully updated");
-				System.out.println("Latest a value is:"+a);
 				
 			}else {
 				System.out.println("Rollback");
@@ -27,12 +26,12 @@ public class SharedResource {
 	}
 
 	public void consume() {
-		System.out.println("Write lock acquired by:" + Thread.currentThread().getName());
+		
 		long stamp = lock.writeLock();
 		System.out.println("Samp value is:"+stamp);
 		try {
 			System.out.println("Performing work..");
-//			a = 9;
+			a = 9;
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

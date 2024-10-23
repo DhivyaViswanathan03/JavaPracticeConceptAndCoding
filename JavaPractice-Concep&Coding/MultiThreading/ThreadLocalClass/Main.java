@@ -14,20 +14,19 @@ public class Main {
 
 			@Override
 			public void run() {
-				System.out.println("Task 1 started");
 				threadLocalObj.set(Thread.currentThread().getName());
 				System.out.println("Task 1 completed" + threadLocalObj.get());
 				//remove threadLocalVaribale if want to reuse the thread
 				threadLocalObj.remove();
 			}
 		});
-		for(int i=0;i<10;i++) {
+		for(int i=0;i<2;i++) {
 		executor.submit(new Runnable() {
 
 			@Override
 			public void run() {
-				System.out.println("Task 1 started");
-				System.out.println("Task 1 completed" + threadLocalObj.get());
+				threadLocalObj.set(Thread.currentThread().getName());
+				System.out.println("Task 2 completed" + threadLocalObj.get());
 			}
 		});
 		}

@@ -15,6 +15,7 @@ public class StreamOperations {
 		 */
 		Stream<String> streamOfStrs1=Stream.of("ABCD","ABC","BCD","A","B","ABCC","BBCC");
 		Stream<String> result1=streamOfStrs1.filter((str)->str.length()<=3);
+		result1.forEach(a->System.out.println(a));
 		System.out.println(result1.count());
 		
 		//MAP

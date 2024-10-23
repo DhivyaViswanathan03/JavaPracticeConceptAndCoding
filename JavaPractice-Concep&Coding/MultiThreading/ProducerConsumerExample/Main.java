@@ -1,5 +1,8 @@
 package ProducerConsumerExample;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -17,9 +20,10 @@ public class Main {
 		});
 
 		Thread t2 = new Thread(new Runnable() {
-
+			
 			@Override
 			public void run() {
+
 				for (int i = 1; i <= 6; i++) {
 					sharedResource.consumer();
 				}

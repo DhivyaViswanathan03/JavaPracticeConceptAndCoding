@@ -1,8 +1,8 @@
 package CreateThread;
 
-/**
- * Implements Runnable
- */
+///**
+// * Implements Runnable
+ 
 //class MyThread implements Runnable{
 //
 //	@Override
